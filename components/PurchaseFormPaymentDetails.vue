@@ -40,9 +40,11 @@ const props = defineProps({
       required
       :model-value="props.creditCardNumber"
       @update:model-value="emit('update:creditCardNumber', $event)"
-    />
+    >
+      <Icon name="formkit:visa" size="2em" class="text-blue-900" />
+    </BaseInput>
 
-    <div class="flex gap-2">
+    <div class="grid md:grid-cols-2 gap-4 md:gap-2">
       <BaseInput
         name="securityCode"
         type="tel"
@@ -53,7 +55,9 @@ const props = defineProps({
         pattern="[0-9]{3}"
         :model-value="props.securityCode"
         @update:model-value="emit('update:securityCode', $event)"
-      />
+      >
+        <Icon name="ph:question" size="1.5em" class="cursor-help text-gray-300" title="Tooltip for CVV code" />
+      </BaseInput>
       <BaseInput
         name="expirationDate"
         type="text"

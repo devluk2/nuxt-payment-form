@@ -48,7 +48,7 @@ const props = defineProps({
 
 <template>
   <div class="flex flex-col gap-4">
-    <div class="flex gap-2">
+    <div class="grid md:grid-cols-2 gap-4 md:gap-2">
       <BaseInput
         name="firstName"
         type="text"
@@ -77,7 +77,7 @@ const props = defineProps({
       :model-value="props.email"
       @update:model-value="emit('update:email', $event)"
     />
-    <div class="flex gap-2">
+    <div class="grid md:grid-cols-2 gap-4 md:gap-2">
       <BaseSelect
         :options="['Poland', 'United States']"
         :default="props.country"

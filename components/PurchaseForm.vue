@@ -23,8 +23,8 @@ const submit = () => {
 </script>
 
 <template>
-  <form class="max-w-3xl mx-auto" @submit.prevent="submit">
-    <div class="-ml-8 flex items-center gap-2 text-sm mb-4 uppercase font-bold">
+  <form class="max-w-3xl mx-auto px-2 md:px-0" @submit.prevent="submit">
+    <div class="md:-ml-8 flex items-center gap-2 text-sm mb-4 uppercase font-bold">
       <p
         class="flex-shrink-1 bg-black text-white rounded-full w-6 h-6 flex items-center justify-center leading-none"
       >
@@ -35,8 +35,8 @@ const submit = () => {
       </p>
     </div>
 
-    <div class="grid grid-cols-3 gap-2">
-      <div class="col-span-2">
+    <div class="grid md:grid-cols-3 gap-2">
+      <div class="order-1 col-span-2">
         <PurchaseFormPersonalInformation
           v-if="currentStep === 1"
           v-model:firstName="form.firstName"
@@ -53,9 +53,10 @@ const submit = () => {
           v-model:expirationDate="form.expirationDate"
         />
       </div>
-      <OrderSummary />
 
-      <div class="col-span-2 flex flex-col gap-2 mt-8">
+      <OrderSummary class="order-3 md:order-2 mt-8 md:mt-0 w-full" />
+
+      <div class="order-2 md:order-3 col-span-2 flex flex-col gap-2 mt-2 md:mt-8">
         <button
           class="flex items-center justify-center gap-2 rounded border-b-2 border-lime-600 invalid:border-red-500 flex-1 bg-lime-500 px-2 py-3 font-bold text-white text-sm uppercase"
           type="submit"
