@@ -10,8 +10,8 @@ const emit = defineEmits([
 
 const props = defineProps({
   errors: {
-    type: Object,
-    default: () => ({}),
+    type: Array,
+    default: () => [],
   },
 
   firstName: {
@@ -55,6 +55,7 @@ const props = defineProps({
         label="First name"
         placeholder="Elon"
         required
+        :error="errors.includes('firstName')"
         :model-value="props.firstName"
         @update:model-value="emit('update:firstName', $event)"
       />
@@ -64,16 +65,17 @@ const props = defineProps({
         label="Last name"
         placeholder="Musk"
         required
+        :error="errors.includes('lastName')"
         :model-value="props.lastName"
         @update:model-value="emit('update:lastName', $event)"
       />
     </div>
     <BaseInput
       name="email"
-      type="email"
+      type="text"
       label="Email"
       placeholder="elon@spacex.com"
-      required
+      :error="errors.includes('email')"
       :model-value="props.email"
       @update:model-value="emit('update:email', $event)"
     />
@@ -91,6 +93,7 @@ const props = defineProps({
         placeholder="10001"
         mask="#####"
         required
+        :error="errors.includes('postalCode')"
         :model-value="props.postalCode"
         @update:model-value="emit('update:postalCode', $event)"
       />
@@ -102,6 +105,7 @@ const props = defineProps({
       placeholder="(212) 692-93-92"
       mask="(###) ###-##-##"
       required
+        :error="errors.includes('phoneNumber')"
       :model-value="props.phoneNumber"
       @update:model-value="emit('update:phoneNumber', $event)"
     />

@@ -34,8 +34,8 @@ const props = defineProps({
     default: "",
   },
   error: {
-    type: String,
-    default: null,
+    type: Boolean,
+    default: false,
   },
 });
 </script>
@@ -43,6 +43,7 @@ const props = defineProps({
 <template>
   <label
     class="rounded border-b-2 invalid:border-red-500 flex-1 bg-white px-2 py-1 text-gray-800"
+    :class="{ 'border-red-500': error }"
   >
     <div class="flex items-center justify-between">
       <div>
@@ -63,6 +64,5 @@ const props = defineProps({
       </div>
       <slot class="flex-shrink-0" />
     </div>
-    <span v-show="props.error?.length">{{ props.error }}</span>
   </label>
 </template>
